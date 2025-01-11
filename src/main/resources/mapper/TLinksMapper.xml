@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fit.dao.TLinksDao">
+  <resultMap id="BaseResultMap" type="com.fit.entity.TLinks">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="serial_count" jdbcType="BIGINT" property="serialCount" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_img" jdbcType="VARCHAR" property="companyImg" />
+    <result column="company_URL" jdbcType="VARCHAR" property="companyUrl" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="type" jdbcType="BIGINT" property="type" />
+    <result column="ordershort" jdbcType="BIGINT" property="ordershort" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, serial_count, company_name, company_img, company_URL, publish_time, `type`, ordershort, 
+    content
+  </sql>
+  <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_links
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from t_links
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="save" keyProperty="id" parameterType="com.fit.entity.TLinks" useGeneratedKeys="true">
+    insert into t_links
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="serialCount != null">
+        serial_count,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyImg != null">
+        company_img,
+      </if>
+      <if test="companyUrl != null">
+        company_URL,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="ordershort != null">
+        ordershort,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="serialCount != null">
+        #{serialCount,jdbcType=BIGINT},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyImg != null">
+        #{companyImg,jdbcType=VARCHAR},
+      </if>
+      <if test="companyUrl != null">
+        #{companyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIGINT},
+      </if>
+      <if test="ordershort != null">
+        #{ordershort,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.fit.entity.TLinks">
+    update t_links
+    <set>
+      <if test="serialCount != null">
+        serial_count = #{serialCount,jdbcType=BIGINT},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyImg != null">
+        company_img = #{companyImg,jdbcType=VARCHAR},
+      </if>
+      <if test="companyUrl != null">
+        company_URL = #{companyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=BIGINT},
+      </if>
+      <if test="ordershort != null">
+        ordershort = #{ordershort,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="Base_Where_List">
+    <where>
+      <if test="serialCount != null and serialCount != ''">
+         and serial_count = #{serialCount,jdbcType=BIGINT}
+      </if>
+      <if test="companyName != null and companyName != ''">
+         and company_name = #{companyName,jdbcType=VARCHAR}
+      </if>
+      <if test="companyImg != null and companyImg != ''">
+         and company_img = #{companyImg,jdbcType=VARCHAR}
+      </if>
+      <if test="companyUrl != null and companyUrl != ''">
+         and company_URL = #{companyUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="publishTime != null and publishTime != ''">
+         and publish_time = #{publishTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="type != null and type != ''">
+         and `type` = #{type,jdbcType=BIGINT}
+      </if>
+      <if test="ordershort != null and ordershort != ''">
+         and ordershort = #{ordershort,jdbcType=BIGINT}
+      </if>
+      <if test="content != null and content != ''">
+         and content = #{content,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </sql>
+  <select id="findList" parameterType="com.fit.entity.TLinks" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+     from t_links
+    <include refid="Base_Where_List" />
+    order by id desc 
+	<if test="offset != null and limit != null">
+	limit ${offset}, ${limit}
+	</if>
+  </select>
+  <select id="findCount" resultType="java.lang.Integer">
+    select count(1) from t_links
+    <include refid="Base_Where_List" />
+  </select>
+  <select id="get" parameterType="java.util.Map" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+     from t_links
+     <include refid="Base_Where_List" />
+  </select>
+  <delete id="batchDelete">
+    delete from t_links
+     where id in (
+     <foreach collection="array" item="id" separator=",">
+     #{id}
+     </foreach>
+    )
+  </delete>
+</mapper>

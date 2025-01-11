@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script>
+        $("#HomePage").click(function () {
+            $.ajax({
+                async: false,
+                url: "html/performance.html",
+                success: function (result) {
+                    $("#showcontent").html("");
+                    $("#showcontent").html(result);
+                }
+            });
+        });
+        $("#NextPage").click(function () {
+            $.ajax({
+                async: false,
+                url: "html/performance.html",
+                success: function (result) {
+                    $("#showcontent").html("");
+                    $("#showcontent").html(result);
+                }
+            });
+        });
+        $("#PreviousPage").click(function () {
+            $.ajax({
+                async: false,
+                url: "html/performance.html",
+                success: function (result) {
+                    $("#showcontent").html("");
+                    $("#showcontent").html(result);
+                }
+            });
+        });
+        $("#EndPage").click(function () {
+            $.ajax({
+                async: false,
+                url: "html/performance.html",
+                success: function (result) {
+                    $("#showcontent").html("");
+                    $("#showcontent").html(result);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<!--列表 start-->
+<div style="margin-top: 50px"></div>
+<div class="ab_center" style="min-height: 300px">
+    <ul>
+        <li><a href="html/halfYearReport201409.html">好乐易贷2014年半年报2014.3.17-2014.8.31 </a><span>2014-09-25</span></li>
+    </ul>
+</div>
+<div class="digg clear"> 第1页/共1页
+    <a id="HomePage" href="javascript:void(0);">首页</a>
+    <a id="PreviousPage" href="javascript:void(0);">上一页</a>
+    <a id="HomePage" href="javascript:void(0);">1</a>
+    <a id="NextPage" href="javascript:void(0);">下一页</a>
+    <a id="EndPage" href="javascript:void(0);">末页 </a>
+</div>
+<!--列表 end-->
+</body>
+</html>

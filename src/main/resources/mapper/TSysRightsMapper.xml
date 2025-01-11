@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fit.dao.TSysRightsDao">
+  <resultMap id="BaseResultMap" type="com.fit.entity.TSysRights">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="is_log" jdbcType="INTEGER" property="isLog" />
+    <result column="isIntercept" jdbcType="INTEGER" property="isintercept" />
+    <result column="is_query" jdbcType="INTEGER" property="isQuery" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="refer" jdbcType="VARCHAR" property="refer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, `name`, `action`, is_log, isIntercept, is_query, sort, refer
+  </sql>
+  <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_rights
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from t_sys_rights
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="save" keyProperty="id" parameterType="com.fit.entity.TSysRights" useGeneratedKeys="true">
+    insert into t_sys_rights
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="action != null">
+        `action`,
+      </if>
+      <if test="isLog != null">
+        is_log,
+      </if>
+      <if test="isintercept != null">
+        isIntercept,
+      </if>
+      <if test="isQuery != null">
+        is_query,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="refer != null">
+        refer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="isLog != null">
+        #{isLog,jdbcType=INTEGER},
+      </if>
+      <if test="isintercept != null">
+        #{isintercept,jdbcType=INTEGER},
+      </if>
+      <if test="isQuery != null">
+        #{isQuery,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="refer != null">
+        #{refer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.fit.entity.TSysRights">
+    update t_sys_rights
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        `action` = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="isLog != null">
+        is_log = #{isLog,jdbcType=INTEGER},
+      </if>
+      <if test="isintercept != null">
+        isIntercept = #{isintercept,jdbcType=INTEGER},
+      </if>
+      <if test="isQuery != null">
+        is_query = #{isQuery,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="refer != null">
+        refer = #{refer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="Base_Where_List">
+    <where>
+      <if test="parentId != null and parentId != ''">
+         and parent_id = #{parentId,jdbcType=BIGINT}
+      </if>
+      <if test="name != null and name != ''">
+         and `name` = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="action != null and action != ''">
+         and `action` = #{action,jdbcType=VARCHAR}
+      </if>
+      <if test="isLog != null and isLog != ''">
+         and is_log = #{isLog,jdbcType=INTEGER}
+      </if>
+      <if test="isintercept != null and isintercept != ''">
+         and isIntercept = #{isintercept,jdbcType=INTEGER}
+      </if>
+      <if test="isQuery != null and isQuery != ''">
+         and is_query = #{isQuery,jdbcType=INTEGER}
+      </if>
+      <if test="sort != null and sort != ''">
+         and sort = #{sort,jdbcType=INTEGER}
+      </if>
+      <if test="refer != null and refer != ''">
+         and refer = #{refer,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </sql>
+  <select id="findList" parameterType="com.fit.entity.TSysRights" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+     from t_sys_rights
+    <include refid="Base_Where_List" />
+    order by id desc 
+	<if test="offset != null and limit != null">
+	limit ${offset}, ${limit}
+	</if>
+  </select>
+  <select id="findCount" resultType="java.lang.Integer">
+    select count(1) from t_sys_rights
+    <include refid="Base_Where_List" />
+  </select>
+  <select id="get" parameterType="java.util.Map" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+     from t_sys_rights
+     <include refid="Base_Where_List" />
+  </select>
+  <delete id="batchDelete">
+    delete from t_sys_rights
+     where id in (
+     <foreach collection="array" item="id" separator=",">
+     #{id}
+     </foreach>
+    )
+  </delete>
+</mapper>

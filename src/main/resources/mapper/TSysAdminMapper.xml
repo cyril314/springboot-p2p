@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fit.dao.TSysAdminDao">
+  <resultMap id="BaseResultMap" type="com.fit.entity.TSysAdmin">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="enable" jdbcType="INTEGER" property="enable" />
+    <result column="is_leader" jdbcType="INTEGER" property="isLeader" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="last_date" jdbcType="TIMESTAMP" property="lastDate" />
+    <result column="last_ip" jdbcType="VARCHAR" property="lastIp" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="card" jdbcType="VARCHAR" property="card" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="native_place_pro" jdbcType="INTEGER" property="nativePlacePro" />
+    <result column="native_place_city" jdbcType="INTEGER" property="nativePlaceCity" />
+    <result column="moneys" jdbcType="DECIMAL" property="moneys" />
+    <result column="refer" jdbcType="VARCHAR" property="refer" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, user_name, `password`, role_id, `enable`, is_leader, real_name, 
+    last_date, last_ip, img, telephone, address, card, email, sex, qq, native_place_pro, 
+    native_place_city, moneys, refer
+  </sql>
+  <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_admin
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from t_sys_admin
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="save" keyProperty="id" parameterType="com.fit.entity.TSysAdmin" useGeneratedKeys="true">
+    insert into t_sys_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="enable != null">
+        `enable`,
+      </if>
+      <if test="isLeader != null">
+        is_leader,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="lastDate != null">
+        last_date,
+      </if>
+      <if test="lastIp != null">
+        last_ip,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="card != null">
+        card,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="nativePlacePro != null">
+        native_place_pro,
+      </if>
+      <if test="nativePlaceCity != null">
+        native_place_city,
+      </if>
+      <if test="moneys != null">
+        moneys,
+      </if>
+      <if test="refer != null">
+        refer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=INTEGER},
+      </if>
+      <if test="isLeader != null">
+        #{isLeader,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDate != null">
+        #{lastDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastIp != null">
+        #{lastIp,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="card != null">
+        #{card,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlacePro != null">
+        #{nativePlacePro,jdbcType=INTEGER},
+      </if>
+      <if test="nativePlaceCity != null">
+        #{nativePlaceCity,jdbcType=INTEGER},
+      </if>
+      <if test="moneys != null">
+        #{moneys,jdbcType=DECIMAL},
+      </if>
+      <if test="refer != null">
+        #{refer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.fit.entity.TSysAdmin">
+    update t_sys_admin
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="enable != null">
+        `enable` = #{enable,jdbcType=INTEGER},
+      </if>
+      <if test="isLeader != null">
+        is_leader = #{isLeader,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="lastDate != null">
+        last_date = #{lastDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastIp != null">
+        last_ip = #{lastIp,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="card != null">
+        card = #{card,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="nativePlacePro != null">
+        native_place_pro = #{nativePlacePro,jdbcType=INTEGER},
+      </if>
+      <if test="nativePlaceCity != null">
+        native_place_city = #{nativePlaceCity,jdbcType=INTEGER},
+      </if>
+      <if test="moneys != null">
+        moneys = #{moneys,jdbcType=DECIMAL},
+      </if>
+      <if test="refer != null">
+        refer = #{refer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="Base_Where_List">
+    <where>
+      <if test="createTime != null and createTime != ''">
+         and create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="userName != null and userName != ''">
+         and user_name = #{userName,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null and password != ''">
+         and `password` = #{password,jdbcType=VARCHAR}
+      </if>
+      <if test="roleId != null and roleId != ''">
+         and role_id = #{roleId,jdbcType=BIGINT}
+      </if>
+      <if test="enable != null and enable != ''">
+         and `enable` = #{enable,jdbcType=INTEGER}
+      </if>
+      <if test="isLeader != null and isLeader != ''">
+         and is_leader = #{isLeader,jdbcType=INTEGER}
+      </if>
+      <if test="realName != null and realName != ''">
+         and real_name = #{realName,jdbcType=VARCHAR}
+      </if>
+      <if test="lastDate != null and lastDate != ''">
+         and last_date = #{lastDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastIp != null and lastIp != ''">
+         and last_ip = #{lastIp,jdbcType=VARCHAR}
+      </if>
+      <if test="img != null and img != ''">
+         and img = #{img,jdbcType=VARCHAR}
+      </if>
+      <if test="telephone != null and telephone != ''">
+         and telephone = #{telephone,jdbcType=VARCHAR}
+      </if>
+      <if test="address != null and address != ''">
+         and address = #{address,jdbcType=VARCHAR}
+      </if>
+      <if test="card != null and card != ''">
+         and card = #{card,jdbcType=VARCHAR}
+      </if>
+      <if test="email != null and email != ''">
+         and email = #{email,jdbcType=VARCHAR}
+      </if>
+      <if test="sex != null and sex != ''">
+         and sex = #{sex,jdbcType=INTEGER}
+      </if>
+      <if test="qq != null and qq != ''">
+         and qq = #{qq,jdbcType=VARCHAR}
+      </if>
+      <if test="nativePlacePro != null and nativePlacePro != ''">
+         and native_place_pro = #{nativePlacePro,jdbcType=INTEGER}
+      </if>
+      <if test="nativePlaceCity != null and nativePlaceCity != ''">
+         and native_place_city = #{nativePlaceCity,jdbcType=INTEGER}
+      </if>
+      <if test="moneys != null and moneys != ''">
+         and moneys = #{moneys,jdbcType=DECIMAL}
+      </if>
+      <if test="refer != null and refer != ''">
+         and refer = #{refer,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </sql>
+  <select id="findList" parameterType="com.fit.entity.TSysAdmin" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+     from t_sys_admin
+    <include refid="Base_Where_List" />
+    order by id desc 
+	<if test="offset != null and limit != null">
+	limit ${offset}, ${limit}
+	</if>
+  </select>
+  <select id="findCount" resultType="java.lang.Integer">
+    select count(1) from t_sys_admin
+    <include refid="Base_Where_List" />
+  </select>
+  <select id="get" parameterType="java.util.Map" resultMap="BaseResultMap">
+     select 
+    <include refid="Base_Column_List" />
+     from t_sys_admin
+     <include refid="Base_Where_List" />
+  </select>
+  <delete id="batchDelete">
+    delete from t_sys_admin
+     where id in (
+     <foreach collection="array" item="id" separator=",">
+     #{id}
+     </foreach>
+    )
+  </delete>
+</mapper>

@@ -99,7 +99,7 @@ var flag = true;
 							</tr>
 							<tr>
 								<td colspan="2">
-									<img id="img" src="static/images/NoImg.GIF"
+									<img id="img" src="${ctx}/static/images/NoImg.GIF"
 										style="display: none; width: 100px; height: 100px;" />
 								</td>
 							</tr>

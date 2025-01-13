@@ -92,7 +92,7 @@ function checkAll(e){
 							</tr>
 						</tbody>
 					</table>
-					<span id="dataInfo"> <img src="static/images/admin/load.gif" class="load" alt="加载中..." /></span>
+					<span id="dataInfo"> <img src="${ctx}/static/images/admin/load.gif" class="load" alt="加载中..." /></span>
 				</div>
 			</div>
 		</div>

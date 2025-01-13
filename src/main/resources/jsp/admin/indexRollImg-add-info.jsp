@@ -105,7 +105,7 @@
 									图片：
 								</td>								
 								<td align="left" class="f66">
-									<img id="img" src="static/images/NoImg.GIF" style="width: 100px;height: 100px;"/>
+									<img id="img" src="${ctx}/static/images/NoImg.GIF" style="width: 100px;height: 100px;"/>
 								     <s:hidden id="companyImg" name="paramMap.companyImg" />
 									 <input id="btnUpImg" value="浏览..." type="button"/>
 									<span class="require-field">*<s:fielderror fieldName="paramMap['companyImg']">

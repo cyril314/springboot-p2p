@@ -1168,7 +1168,7 @@ $(document).ready(function(){
 														name="paramMap.personalHead" />
 													 -->
 						<!-- - 
-    	<img id="img" src="static/images/NoImg.GIF" width="300px" height="300px" />
+    	<img id="img" src="${ctx}/static/images/NoImg.GIF" width="300px" height="300px" />
         <img id="setImg" src="" style="display: none" width="10px" height="10px"/>
     - -->
 					</td>

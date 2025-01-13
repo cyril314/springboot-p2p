@@ -141,7 +141,7 @@ Description 出现在页面头部的 Meta 标签中，用于记录本页面的�
 							</tr>
 							<tr>
 								<td colspan="2">
-									<img id="img" src="static/images/NoImg.GIF"
+									<img id="img" src="${ctx}/static/images/NoImg.GIF"
 										style="display: none; width: 100px; height: 100px;" />
 								</td>
 							</tr>

@@ -67,7 +67,7 @@ div {border: solid 0px red;}
 <body style="overflow-x:hidden;">
 <div class="main">
 	<div id="main"  style="text-align: center">
-		<div id="contentPart1"><img src="static/images/load.gif" /></div>
+		<div id="contentPart1"><img src="${ctx}/static/images/load.gif" /></div>
 		<div id="contentPart2"><span style="color: red;">文件正在上传，请您稍等！</span></div>
 	</div>
 	<div style="width: 100%; text-align: center; padding-bottom: 0px; vertical-align: bottom;">

@@ -19,7 +19,7 @@ public class CaptchaController {
     private static final Random random = new Random();
     private static final Font font = new Font("Arial", Font.BOLD, 30);
 
-    @GetMapping("/captcha")
+    @GetMapping({"/captcha", "/captcha.do"})
     public void getCaptcha(HttpServletResponse response) throws IOException {
         BufferedImage captchaImage = captchaImage(randomStr(4));
         response.setContentType("image/png");

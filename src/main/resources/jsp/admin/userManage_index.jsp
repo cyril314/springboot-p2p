@@ -22,8 +22,6 @@
 				 param["paramMap.realName"] = $("#realName").val();
 			     initListInfo(param);
 				});
-				
-					
 			});
 			
 			function initListInfo(praData){

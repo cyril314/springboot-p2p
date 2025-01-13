@@ -151,7 +151,7 @@
 									图片：
 								</td>
 								<td align="left" class="f66">
-									<img id="img" src="static/images/NoImg.GIF" style="width: 100px;height: 100px;"/>
+									<img id="img" src="${ctx}/static/images/NoImg.GIF" style="width: 100px;height: 100px;"/>
 									<s:hidden id="imgPath" name="paramMap.imgPath" />
 									<input id="btnUpImg" value="上传" type="button"/>
 									<span class="require-field"><s:fielderror fieldName="paramMap['imgPath']"></s:fielderror></span>
@@ -216,7 +216,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<img id="img" src="static/images/NoImg.GIF"
+									<img id="img" src="${ctx}/static/images/NoImg.GIF"
 										style="display: none; width: 100px; height: 100px;" />
 								</td>
 							</tr>

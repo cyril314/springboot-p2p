@@ -381,7 +381,7 @@
 											<td>
 												<c:if
 													test="#request.map.personalHead==null||#request.map.personalHead==''">
-													<img id="img" src="static/images/NoImg.GIF"
+													<img id="img" src="${ctx}/static/images/NoImg.GIF"
 														style="display: block; width: 100px; height: 100px;" />
 												</c:if>
 												<s:else>
@@ -396,7 +396,7 @@
 							</tr>
 							<tr>
 								<td colspan="2" width="100%">
-									<img id="img" src="static/images/NoImg.GIF" style="display: none; width: 100px; height: 100px;" />
+									<img id="img" src="${ctx}/static/images/NoImg.GIF" style="display: none; width: 100px; height: 100px;" />
 								</td>
 							</tr>
 						</table>

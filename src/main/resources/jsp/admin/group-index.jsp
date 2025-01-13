@@ -34,7 +34,7 @@
 					</table>
 				</div>
 				<div style="padding-right: 10px; padding-left: 10px; padding-bottom: 10px; width: 1120px; padding-top: 10px; background-color: #fff;">
-		             <span id="divList"><img src="static/images/admin/load.gif" class="load" alt="加载中..." /></span>
+		             <span id="divList"><img src="${ctx}/static/images/admin/load.gif" class="load" alt="加载中..." /></span>
 					<div>
 	</div>
 </div>

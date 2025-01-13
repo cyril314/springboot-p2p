@@ -1,17 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@include file="../include/taglib.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>${seo_title}</title>
-    <meta http-equiv="pragma" content="no-cache"/>
-    <meta http-equiv="cache-control" content="no-cache"/>
-    <meta http-equiv="expires" content="0"/>
-    <meta http-equiv="keywords" content="${seo_title}"/>
-    <meta http-equiv="description" content="${seo_title}"/>
-    ${seo_other}
-    <link rel="stylesheet" href="${ctx}/static/css/index.css" type="text/css"/>
+    <jsp:include page="../include/head.jsp"></jsp:include>
     <script type="text/javascript" src="${ctx}/static/js/jquery.min.js"></script>
     <style type="text/css">
         body {

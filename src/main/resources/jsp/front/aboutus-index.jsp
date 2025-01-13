@@ -62,7 +62,7 @@
 深圳市宝安区宝源路F518时尚创意园5栋首层
 的范围之内。
 			<br /><br />
-			<img src="static/images/201205161337165144.jpg" width="550" height="413" /> </p>
+			<img src="${ctx}/static/images/201205161337165144.jpg" width="550" height="413" /> </p>
 		</div>
 	  </div>
 	</div>

@@ -105,7 +105,7 @@
 								<td align="left" class="f66">
 									<!--   <input type="file" name="pic" id="FileUp" size="26" onchange="checkData()"> -->
 									<!-- <s:file label="浏览..." theme="simple" name="paramMap.companyImg"/>-->
-									<img id="img" src="static/images/NoImg.GIF" style="width: 100px;height: 100px;"/>
+									<img id="img" src="${ctx}/static/images/NoImg.GIF" style="width: 100px;height: 100px;"/>
 								     <s:hidden id="companyImg" name="paramMap.companyImg" />
 									 <input id="btnUpImg" value="浏览..." type="button"/>
 									<span class="require-field">*<s:fielderror fieldName="paramMap['companyImg']"></s:fielderror></span>
